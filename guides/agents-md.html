@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AGENTS.md Guide | Codex Best Practice</title>
+    <meta
+      name="description"
+      content="Starter guidance for writing AGENTS.md in a Codex-friendly repo."
+    />
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Public+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/styles.css" />
+    <script src="../assets/site.js" defer></script>
+  </head>
+  <body class="guide-shell">
+    <div class="page-shell">
+      <header class="site-header">
+        <div class="container header-row">
+          <a class="brand" href="../index.html">
+            <span class="brand-mark">C</span>
+            <span class="brand-copy">
+              <strong>Codex Best Practice</strong>
+              <span>Guide</span>
+            </span>
+          </a>
+        </div>
+      </header>
+
+      <main>
+        <section class="section">
+          <div class="container">
+            <div class="guide-header" data-reveal>
+              <a class="back-link" href="../index.html#starter">← Back to the landing page</a>
+            </div>
+
+            <div class="hero-copy" data-reveal>
+              <p class="eyebrow">AGENTS.md guide</p>
+              <h1>Keep it short, operational, and true.</h1>
+              <p class="hero-text">
+                Codex reads <code>AGENTS.md</code> before it starts work. That
+                makes it the right place for durable repo expectations, not a
+                dumping ground for everything your team believes about software.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="container guide-grid">
+            <div class="guide-stack">
+              <article class="callout" data-reveal>
+                <h3>What belongs in the file</h3>
+                <ul class="guide-list">
+                  <li>How to run, build, lint, and test the repo</li>
+                  <li>Key directories and ownership boundaries</li>
+                  <li>Constraints, do-not rules, and verification standards</li>
+                  <li>Review expectations and what “done” means</li>
+                </ul>
+              </article>
+
+              <article class="callout" data-reveal>
+                <h3>What usually does not</h3>
+                <ul class="guide-list">
+                  <li>Vague style preferences with no examples</li>
+                  <li>Long architectural essays better kept in separate docs</li>
+                  <li>Rules your team does not actually enforce</li>
+                  <li>Temporary task instructions that should live in the prompt</li>
+                </ul>
+              </article>
+            </div>
+
+            <div class="guide-stack">
+              <article class="code-panel" data-reveal>
+                <pre><code># AGENTS.md
+
+## Repo expectations
+
+- Run `pnpm lint` and `pnpm test` after changes.
+- Keep edits scoped to the requested feature or fix.
+- Do not add new dependencies without approval.
+- Update docs when public behavior changes.
+
+## Done when
+
+- Tests pass locally
+- The requested behavior is verified
+- Risky tradeoffs are called out explicitly</code></pre>
+              </article>
+
+              <article class="callout" data-reveal>
+                <h3>Layering model</h3>
+                <p>
+                  Use a global file for personal defaults, a repo-level file for
+                  shared standards, and nested overrides only where local rules
+                  truly differ. Keep the more specific file close to the work.
+                </p>
+              </article>
+
+              <div class="guide-links" data-reveal>
+                <a href="https://developers.openai.com/codex/guides/agents-md/" target="_blank" rel="noreferrer">Official guide</a>
+                <a href="https://developers.openai.com/codex/learn/best-practices/" target="_blank" rel="noreferrer">Best practices</a>
+                <a href="https://developers.openai.com/codex/cli/slash-commands/" target="_blank" rel="noreferrer">Use /init</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
