@@ -1,0 +1,30 @@
+model = "gpt-5-codex"
+model_reasoning_effort = "medium"
+approval_policy = "on-request"
+sandbox_mode = "workspace-write"
+web_search = "cached"
+personality = "pragmatic"
+
+[features]
+multi_agent = true
+apps = true
+fast_mode = true
+personality = true
+
+[agents]
+max_threads = 6
+max_depth = 1
+
+[agents.researcher]
+description = "Gather official docs, local examples, and external context without making code changes."
+config_file = ".codex/agents/researcher.toml"
+nickname_candidates = ["Scout", "Mapper"]
+
+[agents.reviewer]
+description = "Review diffs and local changes for bugs, regressions, and missing validation steps."
+config_file = ".codex/agents/reviewer.toml"
+nickname_candidates = ["Guard", "Check"]
+
+[mcp_servers.openaiDeveloperDocs]
+url = "https://developers.openai.com/mcp"
+required = true

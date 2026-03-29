@@ -3,452 +3,307 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Codex Best Practice</title>
+    <title>codex-best-practice</title>
     <meta
       name="description"
-      content="A GitHub Pages starter for documenting how to use Codex well: AGENTS.md, config.toml, skills, subagents, MCP, plugins, and automations."
+      content="README-style Codex handbook: concepts, examples, workflow notes, and repo artifacts."
     />
-    <meta name="theme-color" content="#13233b" />
-    <meta property="og:title" content="Codex Best Practice" />
-    <meta
-      property="og:description"
-      content="A one-page Codex handbook starter for GitHub Pages."
-    />
-    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#0f172a" />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Public+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="assets/styles.css" />
     <script src="assets/site.js" defer></script>
   </head>
   <body>
-    <div class="page-shell">
-      <header class="site-header">
-        <div class="container header-row">
-          <a class="brand" href="#top" aria-label="Codex Best Practice home">
-            <span class="brand-mark">C</span>
-            <span class="brand-copy">
-              <strong>Codex Best Practice</strong>
-              <span>GitHub Pages starter</span>
-            </span>
-          </a>
-          <nav class="site-nav" aria-label="Primary">
-            <a href="#stack">Stack</a>
-            <a href="#workflow">Workflow</a>
-            <a href="#starter">Starter</a>
-            <a href="#docs">Docs</a>
-          </nav>
+    <header class="site-header">
+      <div class="shell header-row">
+        <a class="brand" href="#top">codex-best-practice</a>
+        <nav class="header-links" aria-label="Primary">
+          <a href="https://github.com/DecentMakeover/codex-best-practice" target="_blank" rel="noreferrer">GitHub repo</a>
+          <a href="https://github.com/DecentMakeover/codex-best-practice/blob/main/README.md" target="_blank" rel="noreferrer">README</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="shell docs-layout" id="top">
+      <aside class="toc">
+        <div class="toc-card">
+          <p class="toc-title">On this page</p>
+          <a href="#summary">Summary</a>
+          <a href="#concepts">Concepts</a>
+          <a href="#hot">Hot</a>
+          <a href="#workflow">Workflow</a>
+          <a href="#implemented">Implemented</a>
+          <a href="#tree">Starter tree</a>
+          <a href="#usage">How to use</a>
+          <a href="#tips">Tips</a>
+          <a href="#docs">Docs map</a>
         </div>
-      </header>
+      </aside>
 
-      <main id="top">
-        <section class="hero section">
-          <div class="container hero-grid">
-            <div class="hero-copy" data-reveal>
-              <p class="eyebrow">Codex handbook, not prompt soup</p>
-              <h1>Build the page you wish every Codex repo already had.</h1>
-              <p class="hero-text">
-                This starter turns the messy parts of agentic development into a
-                clean, browsable system: durable instructions, reusable skills,
-                safe defaults, live tooling, and repeatable workflows.
-              </p>
-              <div class="hero-actions">
-                <a class="button button-primary" href="#stack">Explore the stack</a>
-                <a class="button button-secondary" href="#starter">See the starter layout</a>
-              </div>
-              <ul class="meta-pills" aria-label="Highlights">
-                <li>Static HTML</li>
-                <li>GitHub Pages ready</li>
-                <li>Official Codex docs linked</li>
-                <li>Original copy and visuals</li>
-              </ul>
-            </div>
+      <article class="readme-sheet">
+        <section id="summary">
+          <h1>codex-best-practice</h1>
+          <p class="subtitle">practice makes codex better</p>
 
-            <aside class="hero-panel" data-reveal>
-              <div class="terminal-card">
-                <div class="terminal-top">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </div>
-                <div class="terminal-body">
-                  <p>$ codex</p>
-                  <p>&gt; plan before you type faster</p>
-                  <p>&gt; keep durable rules in AGENTS.md</p>
-                  <p>&gt; use config.toml for defaults</p>
-                  <p>&gt; package repeatable work as skills</p>
-                  <p>&gt; connect live systems with MCP</p>
-                  <p>&gt; ship shared workflows as plugins</p>
-                  <p>&gt; automate only after the workflow is stable</p>
-                </div>
-              </div>
-
-              <div class="signal-card">
-                <p class="signal-kicker">Operating model</p>
-                <ol class="signal-list">
-                  <li>Prompt with goal, context, constraints, done-when.</li>
-                  <li>Move recurring rules out of the prompt and into files.</li>
-                  <li>Make reliable workflows discoverable and shareable.</li>
-                  <li>Keep external context live instead of pasted.</li>
-                </ol>
-              </div>
-            </aside>
+          <div class="badge-row">
+            <img alt="Built with Codex CLI 0.117.0" src="https://img.shields.io/badge/built_with_Codex_CLI-0.117.0%20(Mar%2029%2C%202026)-white?style=flat&labelColor=555" />
+            <img alt="GitHub stars" src="https://img.shields.io/github/stars/DecentMakeover/codex-best-practice?style=flat&label=%E2%98%85&labelColor=555&color=white" />
+            <img alt="Best practice handbook" src="https://img.shields.io/badge/best-practice-handbook-0a7?style=flat" />
+            <img alt="Implemented in repo" src="https://img.shields.io/badge/implemented-in_repo-1f6feb?style=flat" />
           </div>
+
+          <blockquote>
+            README-first Codex handbook. This is intentionally closer to the
+            reference GitHub README pattern than to a glossy landing page.
+          </blockquote>
+
+          <p>
+            For the full repo experience, open the
+            <a href="https://github.com/DecentMakeover/codex-best-practice/blob/main/README.md" target="_blank" rel="noreferrer">README on GitHub</a>.
+            This page mirrors the same structure and points at the actual files
+            inside the repository.
+          </p>
         </section>
 
-        <section class="section lane-section">
-          <div class="container" data-reveal>
-            <div class="section-heading">
-              <p class="eyebrow">Choose a lane</p>
-              <h2>Focus the page around the way you actually use Codex.</h2>
-            </div>
-            <div class="focus-chips" role="toolbar" aria-label="Workflow focus">
-              <button class="focus-chip is-active" data-focus="all" type="button">
-                Show everything
-              </button>
-              <button class="focus-chip" data-focus="first-week" type="button">
-                First week
-              </button>
-              <button class="focus-chip" data-focus="team-repo" type="button">
-                Team repo
-              </button>
-              <button class="focus-chip" data-focus="repeatable" type="button">
-                Repeatable work
-              </button>
-            </div>
-          </div>
+        <section id="concepts">
+          <h2>Concepts</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>Location</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="https://developers.openai.com/codex/cli/slash-commands/" target="_blank" rel="noreferrer"><strong>Slash commands</strong></a></td>
+                <td><code>built-in</code></td>
+                <td>Codex’s native control surface: <code>/plan</code>, <code>/review</code>, <code>/mcp</code>, <code>/apps</code>, <code>/status</code>, <code>/fork</code>, and more.</td>
+              </tr>
+              <tr>
+                <td><a href="https://developers.openai.com/codex/multi-agent/" target="_blank" rel="noreferrer"><strong>Subagents</strong></a></td>
+                <td><a href="https://github.com/DecentMakeover/codex-best-practice/tree/main/.codex/agents" target="_blank" rel="noreferrer"><code>.codex/agents/</code></a></td>
+                <td>Specialized roles for bounded parallel work. This repo includes read-only research and review roles.</td>
+              </tr>
+              <tr>
+                <td><a href="https://developers.openai.com/codex/skills" target="_blank" rel="noreferrer"><strong>Skills</strong></a></td>
+                <td><a href="https://github.com/DecentMakeover/codex-best-practice/tree/main/.agents/skills" target="_blank" rel="noreferrer"><code>.agents/skills/</code></a></td>
+                <td>Reusable workflows with progressive disclosure. This repo includes a release-notes skill with a reference outline.</td>
+              </tr>
+              <tr>
+                <td><a href="https://developers.openai.com/codex/guides/agents-md/" target="_blank" rel="noreferrer"><strong>AGENTS.md</strong></a></td>
+                <td><a href="https://github.com/DecentMakeover/codex-best-practice/blob/main/AGENTS.md" target="_blank" rel="noreferrer"><code>AGENTS.md</code></a></td>
+                <td>Persistent repo instructions: how to run the repo, what to avoid, and what “done” means.</td>
+              </tr>
+              <tr>
+                <td><a href="https://developers.openai.com/codex/config-reference/" target="_blank" rel="noreferrer"><strong>Config</strong></a></td>
+                <td><a href="https://github.com/DecentMakeover/codex-best-practice/blob/main/.codex/config.toml" target="_blank" rel="noreferrer"><code>.codex/config.toml</code></a></td>
+                <td>Layered TOML defaults for model, approvals, sandbox, apps, and MCP.</td>
+              </tr>
+              <tr>
+                <td><a href="https://developers.openai.com/codex/mcp" target="_blank" rel="noreferrer"><strong>MCP</strong></a></td>
+                <td><code>[mcp_servers.*]</code></td>
+                <td>Connect live docs and tools instead of pasting stale context into the prompt.</td>
+              </tr>
+              <tr>
+                <td><a href="https://developers.openai.com/codex/plugins" target="_blank" rel="noreferrer"><strong>Plugins</strong></a></td>
+                <td><code>.codex-plugin/plugin.json</code></td>
+                <td>Distribution format for shipping skills, apps, and MCP together.</td>
+              </tr>
+              <tr>
+                <td><a href="https://developers.openai.com/codex/cli/slash-commands/#browse-apps-with-apps" target="_blank" rel="noreferrer"><strong>Apps / Connectors</strong></a></td>
+                <td><code>/apps</code>, <code>[apps.*]</code></td>
+                <td>Connected tools from ChatGPT surfaced inside Codex for work that crosses systems.</td>
+              </tr>
+              <tr>
+                <td><a href="https://developers.openai.com/codex/app/automations/" target="_blank" rel="noreferrer"><strong>Automations</strong></a></td>
+                <td><code>Codex app</code></td>
+                <td>Background recurring tasks once a workflow is stable enough to trust on a schedule.</td>
+              </tr>
+              <tr>
+                <td><a href="https://developers.openai.com/codex/learn/best-practices/#improve-reliability-with-testing-and-review" target="_blank" rel="noreferrer"><strong>Review</strong></a></td>
+                <td><code>/review</code>, diff view</td>
+                <td>Review loops turn Codex from a fast generator into a more reliable engineering tool.</td>
+              </tr>
+              <tr>
+                <td><a href="https://github.com/DecentMakeover/codex-best-practice/blob/main/orchestration-workflow/orchestration-workflow.md" target="_blank" rel="noreferrer"><strong>Workflows</strong></a></td>
+                <td><code>AGENTS.md</code> + config + skills + agents</td>
+                <td>Codex orchestration is built from durable repo files plus built-in commands.</td>
+              </tr>
+            </tbody>
+          </table>
         </section>
 
-        <section class="section" id="stack">
-          <div class="container">
-            <div class="section-heading" data-reveal>
-              <p class="eyebrow">The stack</p>
-              <h2>The pieces worth explaining on day one.</h2>
-              <p>
-                These are the building blocks that keep Codex useful after the
-                demo wears off.
-              </p>
-            </div>
-
-            <div class="stack-grid">
-              <article class="stack-card" data-topic="first-week team-repo" data-reveal>
-                <div class="card-topline">Instructions</div>
-                <h3>AGENTS.md</h3>
-                <p>
-                  Put repo expectations where Codex reads them automatically:
-                  how to run the project, what to avoid, and what “done” means.
-                </p>
-                <a href="https://developers.openai.com/codex/guides/agents-md/" target="_blank" rel="noreferrer">
-                  Read the guide
-                </a>
-              </article>
-
-              <article class="stack-card" data-topic="first-week team-repo" data-reveal>
-                <div class="card-topline">Defaults</div>
-                <h3>config.toml</h3>
-                <p>
-                  Set model, approvals, sandboxing, profiles, apps, and MCP
-                  servers once instead of renegotiating them every session.
-                </p>
-                <a href="https://developers.openai.com/codex/config-reference/" target="_blank" rel="noreferrer">
-                  Browse config keys
-                </a>
-              </article>
-
-              <article class="stack-card" data-topic="first-week" data-reveal>
-                <div class="card-topline">Control surface</div>
-                <h3>Slash commands</h3>
-                <p>
-                  Use `/plan`, `/review`, `/status`, `/mcp`, `/apps`, and
-                  `/init` to steer a session without rebuilding context.
-                </p>
-                <a href="https://developers.openai.com/codex/cli/slash-commands/" target="_blank" rel="noreferrer">
-                  See built-in commands
-                </a>
-              </article>
-
-              <article class="stack-card" data-topic="team-repo repeatable" data-reveal>
-                <div class="card-topline">Reusable workflows</div>
-                <h3>Skills</h3>
-                <p>
-                  Turn a stable prompt into a real workflow. Keep the skill
-                  focused, make the description precise, and let Codex discover
-                  it when the task matches.
-                </p>
-                <a href="https://developers.openai.com/codex/skills" target="_blank" rel="noreferrer">
-                  Learn skill structure
-                </a>
-              </article>
-
-              <article class="stack-card" data-topic="team-repo repeatable" data-reveal>
-                <div class="card-topline">Parallel work</div>
-                <h3>Subagents</h3>
-                <p>
-                  Keep the main thread focused and offload bounded exploration,
-                  triage, or verification to worker threads when it actually
-                  helps.
-                </p>
-                <a href="https://developers.openai.com/codex/multi-agent/" target="_blank" rel="noreferrer">
-                  Review multi-agent workflows
-                </a>
-              </article>
-
-              <article class="stack-card" data-topic="team-repo repeatable" data-reveal>
-                <div class="card-topline">Live context</div>
-                <h3>MCP</h3>
-                <p>
-                  Stop pasting changing data into prompts. Connect docs, browser
-                  tooling, incident systems, or design tools through MCP.
-                </p>
-                <a href="https://developers.openai.com/codex/mcp" target="_blank" rel="noreferrer">
-                  Connect an MCP server
-                </a>
-              </article>
-
-              <article class="stack-card" data-topic="team-repo repeatable" data-reveal>
-                <div class="card-topline">Distribution</div>
-                <h3>Plugins</h3>
-                <p>
-                  Bundle skills, app integrations, and MCP together when you
-                  want something installable instead of a pile of internal docs.
-                </p>
-                <a href="https://developers.openai.com/codex/plugins" target="_blank" rel="noreferrer">
-                  Explore plugins
-                </a>
-              </article>
-
-              <article class="stack-card" data-topic="repeatable" data-reveal>
-                <div class="card-topline">Background execution</div>
-                <h3>Automations</h3>
-                <p>
-                  When a workflow becomes boring in the best possible way,
-                  schedule it. Skills define the method; automations define the
-                  cadence.
-                </p>
-                <a href="https://developers.openai.com/codex/app/automations/" target="_blank" rel="noreferrer">
-                  Schedule recurring tasks
-                </a>
-              </article>
-            </div>
-          </div>
+        <section id="hot">
+          <h2>Hot</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>Why it matters</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="https://developers.openai.com/codex/multi-agent/" target="_blank" rel="noreferrer"><strong>Multi-agent</strong></a></td>
+                <td>Parallelize bounded work and keep the main thread focused.</td>
+              </tr>
+              <tr>
+                <td><a href="https://developers.openai.com/codex/app/automations/" target="_blank" rel="noreferrer"><strong>Automations</strong></a></td>
+                <td>Stable workflows can move into background runs instead of living in your todo list.</td>
+              </tr>
+              <tr>
+                <td><a href="https://developers.openai.com/codex/cli/slash-commands/#browse-apps-with-apps" target="_blank" rel="noreferrer"><strong>Apps / Connectors</strong></a></td>
+                <td>Codex can work across connected systems, not only the local repository.</td>
+              </tr>
+              <tr>
+                <td><a href="https://developers.openai.com/codex/cli/slash-commands/#toggle-fast-mode-with-fast" target="_blank" rel="noreferrer"><strong>Fast mode</strong></a></td>
+                <td>Better iteration speed when latency matters more than maximum reasoning depth.</td>
+              </tr>
+              <tr>
+                <td><a href="https://developers.openai.com/codex/quickstart/" target="_blank" rel="noreferrer"><strong>Cloud tasks</strong></a></td>
+                <td>Codex also runs in the cloud, not only inside the local CLI or desktop app.</td>
+              </tr>
+              <tr>
+                <td><a href="https://developers.openai.com/codex/learn/best-practices/#improve-reliability-with-testing-and-review" target="_blank" rel="noreferrer"><strong>Review loops</strong></a></td>
+                <td>Codex is strongest when it also tests, checks, and reviews the work it just did.</td>
+              </tr>
+            </tbody>
+          </table>
         </section>
 
-        <section class="section" id="workflow">
-          <div class="container">
-            <div class="section-heading" data-reveal>
-              <p class="eyebrow">Workflow ladder</p>
-              <h2>Recommended order of operations.</h2>
-            </div>
-
-            <div class="workflow-grid">
-              <article class="workflow-card" data-reveal>
-                <span>01</span>
-                <h3>Start with prompts and plan mode</h3>
-                <p>
-                  Use clear task framing first. If the work is ambiguous, ask
-                  Codex to plan before it edits anything.
-                </p>
-              </article>
-
-              <article class="workflow-card" data-reveal>
-                <span>02</span>
-                <h3>Encode the rules you repeat</h3>
-                <p>
-                  Move durable expectations into <code>AGENTS.md</code> and
-                  your default config so they stop living in chat history.
-                </p>
-              </article>
-
-              <article class="workflow-card" data-reveal>
-                <span>03</span>
-                <h3>Package stable behavior</h3>
-                <p>
-                  Convert reliable flows into skills, add MCP when context needs
-                  to stay live, and distribute with plugins when the workflow is
-                  ready for others.
-                </p>
-              </article>
-            </div>
-
-            <div class="command-strip" data-reveal>
-              <p class="command-strip-title">Daily command set</p>
-              <div class="command-pills">
-                <span>/plan</span>
-                <span>/init</span>
-                <span>/status</span>
-                <span>/mcp</span>
-                <span>/apps</span>
-                <span>/review</span>
-                <span>/diff</span>
-                <span>/resume</span>
-                <span>/fork</span>
-              </div>
-            </div>
-          </div>
+        <section id="workflow">
+          <h2>Orchestration workflow</h2>
+          <p>
+            The Claude reference repo leans on <strong>Command → Agent →
+            Skill</strong>. Codex’s closer equivalent is:
+          </p>
+          <pre class="diagram"><code>Prompt or /plan
+      ↓
+AGENTS.md + .codex/config.toml
+      ↓
+Subagent role
+      ↓
+Skill
+      ↓
+Code or report
+      ↓
+/review + diff + commit</code></pre>
+          <p>
+            Read the repo note:
+            <a href="https://github.com/DecentMakeover/codex-best-practice/blob/main/orchestration-workflow/orchestration-workflow.md" target="_blank" rel="noreferrer">orchestration-workflow/orchestration-workflow.md</a>
+          </p>
         </section>
 
-        <section class="section" id="starter">
-          <div class="container starter-grid">
-            <div data-reveal>
-              <div class="section-heading">
-                <p class="eyebrow">Starter layout</p>
-                <h2>A repo shape that maps cleanly to the page.</h2>
-                <p>
-                  Keep the site simple, then grow into deeper guides only when
-                  the content earns it.
-                </p>
-              </div>
+        <section id="implemented">
+          <h2>Implemented in this repo</h2>
+          <ul>
+            <li><a href="https://github.com/DecentMakeover/codex-best-practice/blob/main/AGENTS.md" target="_blank" rel="noreferrer"><code>AGENTS.md</code></a></li>
+            <li><a href="https://github.com/DecentMakeover/codex-best-practice/blob/main/.codex/config.toml" target="_blank" rel="noreferrer"><code>.codex/config.toml</code></a></li>
+            <li><a href="https://github.com/DecentMakeover/codex-best-practice/tree/main/.codex/agents" target="_blank" rel="noreferrer"><code>.codex/agents/</code></a></li>
+            <li><a href="https://github.com/DecentMakeover/codex-best-practice/tree/main/.agents/skills/release-notes" target="_blank" rel="noreferrer"><code>.agents/skills/release-notes/</code></a></li>
+            <li><a href="https://github.com/DecentMakeover/codex-best-practice/tree/main/best-practice" target="_blank" rel="noreferrer"><code>best-practice/</code></a></li>
+            <li><a href="https://github.com/DecentMakeover/codex-best-practice/tree/main/docs" target="_blank" rel="noreferrer"><code>docs/</code></a></li>
+          </ul>
+        </section>
 
-              <div class="callout">
-                <h3>What to keep in the repo</h3>
-                <p>
-                  The landing page explains the system. The repo itself should
-                  contain working examples of that system: a real
-                  <code>AGENTS.md</code>, a real <code>.codex/config.toml</code>,
-                  and at least one useful skill.
-                </p>
-              </div>
-            </div>
-
-            <div class="code-panel" data-reveal>
-              <pre><code>.
-├── index.html
-├── assets/
-│   ├── styles.css
-│   ├── site.js
-│   └── favicon.svg
+        <section id="tree">
+          <h2>Starter tree</h2>
+          <pre><code>.
 ├── README.md
+├── index.html
 ├── AGENTS.md
 ├── .codex/
-│   └── config.toml
+│   ├── config.toml
+│   └── agents/
+│       ├── researcher.toml
+│       └── reviewer.toml
 ├── .agents/
 │   └── skills/
 │       └── release-notes/
-│           └── SKILL.md
-└── guides/
-    ├── agents-md.html
-    ├── config.html
-    └── skills.html</code></pre>
-            </div>
-          </div>
+│           ├── SKILL.md
+│           └── references/
+│               └── outline.md
+├── best-practice/
+│   ├── README.md
+│   ├── codex-agents-md.md
+│   ├── codex-config.md
+│   ├── codex-mcp.md
+│   ├── codex-skills.md
+│   └── codex-subagents.md
+├── docs/
+│   └── SKILLS.md
+└── orchestration-workflow/
+    └── orchestration-workflow.md</code></pre>
         </section>
 
-        <section class="section page-section">
-          <div class="container page-grid">
-            <article class="page-card" data-reveal>
-              <p class="page-kicker">Starter guide</p>
-              <h3>AGENTS.md: what belongs in it and what does not</h3>
-              <p>
-                A short internal page for repo rules, nested overrides, and a
-                minimal starter file your team can actually commit.
-              </p>
-              <a class="card-link" href="guides/agents-md.html">Open guide</a>
-            </article>
-
-            <article class="page-card" data-reveal>
-              <p class="page-kicker">Starter guide</p>
-              <h3>config.toml: set sane defaults before you need them</h3>
-              <p>
-                Document the model, approvals, sandboxing, and profile choices
-                you want people to stop improvising.
-              </p>
-              <a class="card-link" href="guides/config.html">Open guide</a>
-            </article>
-
-            <article class="page-card" data-reveal>
-              <p class="page-kicker">Starter guide</p>
-              <h3>Skills: turn a good prompt into a reusable workflow</h3>
-              <p>
-                Use a real skill example to show when instructions are enough
-                and when scripts or MCP dependencies are worth it.
-              </p>
-              <a class="card-link" href="guides/skills.html">Open guide</a>
-            </article>
-
-            <article class="page-card alt" data-reveal>
-              <p class="page-kicker">Avoid this trap</p>
-              <h3>Do not document fantasy workflows.</h3>
-              <p>
-                If the page says “use skills,” the repo should contain a real
-                skill. If it says “review with Codex,” show the command and the
-                review expectations. Keep the landing page tied to working
-                artifacts.
-              </p>
-            </article>
-          </div>
+        <section id="usage">
+          <h2>How to use</h2>
+          <pre><code>codex
+&gt; /plan Inspect this repo and tell me which AGENTS.md, config, skills, and agents I should copy into my own project first.</code></pre>
+          <ol>
+            <li>Copy <code>AGENTS.md</code> and rewrite it for your repo.</li>
+            <li>Copy <code>.codex/config.toml</code> and trim it to the defaults your team will actually use.</li>
+            <li>Add one skill for a workflow you already repeat.</li>
+            <li>Add one read-only subagent role for research or review.</li>
+            <li>Add MCP only when you are clearly losing time to copy-paste.</li>
+          </ol>
         </section>
 
-        <section class="section" id="docs">
-          <div class="container">
-            <div class="section-heading" data-reveal>
-              <p class="eyebrow">Docs map</p>
-              <h2>Official references worth linking from the page.</h2>
-            </div>
+        <section id="tips">
+          <h2>Tips</h2>
+          <h3>Planning</h3>
+          <ul>
+            <li>Start with <code>/plan</code> for ambiguous or multi-step work.</li>
+            <li>Put goal, context, constraints, and done-when in the first prompt.</li>
+            <li>Keep one thread per coherent task.</li>
+          </ul>
 
-            <div class="docs-grid">
-              <a class="doc-card" data-reveal href="https://developers.openai.com/codex/overview" target="_blank" rel="noreferrer">
-                <span>Overview</span>
-                <strong>What Codex is</strong>
-              </a>
-              <a class="doc-card" data-reveal href="https://developers.openai.com/codex/learn/best-practices/" target="_blank" rel="noreferrer">
-                <span>Best practices</span>
-                <strong>How to use it well</strong>
-              </a>
-              <a class="doc-card" data-reveal href="https://developers.openai.com/codex/guides/agents-md/" target="_blank" rel="noreferrer">
-                <span>AGENTS.md</span>
-                <strong>Persistent repo instructions</strong>
-              </a>
-              <a class="doc-card" data-reveal href="https://developers.openai.com/codex/config-reference/" target="_blank" rel="noreferrer">
-                <span>Config</span>
-                <strong>Every durable setting</strong>
-              </a>
-              <a class="doc-card" data-reveal href="https://developers.openai.com/codex/cli/slash-commands/" target="_blank" rel="noreferrer">
-                <span>Slash commands</span>
-                <strong>Session control surface</strong>
-              </a>
-              <a class="doc-card" data-reveal href="https://developers.openai.com/codex/skills" target="_blank" rel="noreferrer">
-                <span>Skills</span>
-                <strong>Reusable workflows</strong>
-              </a>
-              <a class="doc-card" data-reveal href="https://developers.openai.com/codex/multi-agent/" target="_blank" rel="noreferrer">
-                <span>Multi-agent</span>
-                <strong>Subagents and orchestration</strong>
-              </a>
-              <a class="doc-card" data-reveal href="https://developers.openai.com/codex/mcp" target="_blank" rel="noreferrer">
-                <span>MCP</span>
-                <strong>External tools and live context</strong>
-              </a>
-              <a class="doc-card" data-reveal href="https://developers.openai.com/codex/plugins" target="_blank" rel="noreferrer">
-                <span>Plugins</span>
-                <strong>Package and install workflows</strong>
-              </a>
-              <a class="doc-card" data-reveal href="https://developers.openai.com/codex/app/automations/" target="_blank" rel="noreferrer">
-                <span>Automations</span>
-                <strong>Run stable work in the background</strong>
-              </a>
-            </div>
-          </div>
+          <h3>AGENTS.md / Config</h3>
+          <ul>
+            <li>Keep <code>AGENTS.md</code> short and operational.</li>
+            <li>Put deterministic defaults in <code>config.toml</code>, not prose.</li>
+            <li><code>workspace-write</code> + <code>on-request</code> is a strong default.</li>
+          </ul>
+
+          <h3>Skills / Subagents</h3>
+          <ul>
+            <li>Create a skill when a workflow repeats enough to notice the pattern.</li>
+            <li>Write the skill description as a trigger boundary.</li>
+            <li>Delegate bounded sidecar work, not the whole problem.</li>
+          </ul>
+
+          <h3>Review / MCP</h3>
+          <ul>
+            <li>Add live tools only when copy-paste is becoming the bottleneck.</li>
+            <li><code>openaiDeveloperDocs</code> is a strong first MCP server.</li>
+            <li>Use <code>/review</code> before commit.</li>
+          </ul>
         </section>
-      </main>
 
-      <footer class="site-footer">
-        <div class="container footer-row">
-          <div>
-            <p class="footer-title">Codex Best Practice</p>
-            <p>
-              Built as a GitHub Pages starter for a Codex-first handbook.
-            </p>
-          </div>
-          <div class="footer-meta">
-            <p>Reviewed against official Codex docs on March 29, 2026.</p>
-            <p>&copy; <span id="year"></span></p>
-          </div>
-        </div>
-      </footer>
-    </div>
+        <section id="docs">
+          <h2>Docs map</h2>
+          <ul>
+            <li><a href="https://developers.openai.com/codex/overview" target="_blank" rel="noreferrer">Codex overview</a></li>
+            <li><a href="https://developers.openai.com/codex/learn/best-practices/" target="_blank" rel="noreferrer">Best practices</a></li>
+            <li><a href="https://developers.openai.com/codex/guides/agents-md/" target="_blank" rel="noreferrer">AGENTS.md guide</a></li>
+            <li><a href="https://developers.openai.com/codex/config-reference/" target="_blank" rel="noreferrer">Config reference</a></li>
+            <li><a href="https://developers.openai.com/codex/skills" target="_blank" rel="noreferrer">Skills</a></li>
+            <li><a href="https://developers.openai.com/codex/multi-agent/" target="_blank" rel="noreferrer">Multi-agent</a></li>
+            <li><a href="https://developers.openai.com/codex/mcp" target="_blank" rel="noreferrer">MCP</a></li>
+            <li><a href="https://developers.openai.com/codex/plugins" target="_blank" rel="noreferrer">Plugins</a></li>
+            <li><a href="https://developers.openai.com/codex/app/automations/" target="_blank" rel="noreferrer">Automations</a></li>
+            <li><a href="https://developers.openai.com/codex/quickstart/" target="_blank" rel="noreferrer">Quickstart</a></li>
+          </ul>
+        </section>
+      </article>
+    </main>
   </body>
 </html>

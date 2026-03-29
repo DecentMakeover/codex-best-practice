@@ -1,50 +1,38 @@
-const revealNodes = document.querySelectorAll("[data-reveal]");
+const tocLinks = Array.from(document.querySelectorAll(".toc-card a"));
+const sections = tocLinks
+  .map((link) => {
+    const id = link.getAttribute("href");
+    if (!id || !id.startsWith("#")) return null;
+    return [link, document.querySelector(id)];
+  })
+  .filter(Boolean);
 
-if ("IntersectionObserver" in window) {
-  const revealObserver = new IntersectionObserver(
-    (entries, observer) => {
+if ("IntersectionObserver" in window && sections.length > 0) {
+  const active = new Map();
+  const observer = new IntersectionObserver(
+    (entries) => {
       entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add("is-visible");
-        observer.unobserve(entry.target);
+        active.set(entry.target.id, entry.isIntersecting);
+      });
+
+      let currentId = "";
+      for (const [, section] of sections) {
+        if (section && active.get(section.id)) currentId = section.id;
+      }
+
+      tocLinks.forEach((link) => {
+        const href = link.getAttribute("href");
+        link.style.fontWeight = href === `#${currentId}` ? "700" : "500";
+        link.style.color = href === `#${currentId}` ? "#0f172a" : "#475569";
       });
     },
     {
-      threshold: 0.15,
-      rootMargin: "0px 0px -5% 0px",
+      rootMargin: "-20% 0px -65% 0px",
+      threshold: 0,
     },
   );
 
-  revealNodes.forEach((node) => revealObserver.observe(node));
-} else {
-  revealNodes.forEach((node) => node.classList.add("is-visible"));
-}
-
-const focusButtons = Array.from(document.querySelectorAll(".focus-chip"));
-const stackCards = Array.from(document.querySelectorAll(".stack-card"));
-
-function applyFocus(focus) {
-  focusButtons.forEach((button) => {
-    button.classList.toggle("is-active", button.dataset.focus === focus);
+  sections.forEach(([, section]) => {
+    if (section) observer.observe(section);
   });
-
-  stackCards.forEach((card) => {
-    const topics = (card.dataset.topic || "").split(" ").filter(Boolean);
-    const isMatch = focus === "all" || topics.includes(focus);
-    card.classList.toggle("is-dimmed", !isMatch && focus !== "all");
-    card.classList.toggle("is-highlighted", isMatch && focus !== "all");
-  });
-}
-
-focusButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    applyFocus(button.dataset.focus || "all");
-  });
-});
-
-applyFocus("all");
-
-const yearNode = document.querySelector("#year");
-if (yearNode) {
-  yearNode.textContent = String(new Date().getFullYear());
 }
